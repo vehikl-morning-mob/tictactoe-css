@@ -32,3 +32,22 @@ test('when the first square is clicked it turns into an X', () => {
   // assert all the other tiles have innerText of ""
 
 });
+
+
+test('when the second square is clicked it turns into an O', () => {
+  // render app
+  render(<App />)
+  // find the first tile
+  const tile = screen.getAllByTestId('tile')[0]
+  // click it
+  fireEvent.click(tile)
+  // assert the first tile has innerText of "X"
+  expect(tile.innerHTML).toBe("X")
+  // assert all the other tiles have innerText of ""
+  const tile2 = screen.getAllByTestId('tile')[1]
+  // click it
+  fireEvent.click(tile2)
+  // assert the first tile has innerText of "X"
+  expect(tile2.innerHTML).toBe("O")
+
+});
