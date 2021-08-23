@@ -7,7 +7,7 @@ function Board() {
 
     const handleSquareValue = (index:number) => {
         let newStateOfSquares = [...squares];
-        newStateOfSquares[0] = 'X';
+        newStateOfSquares[index] = 'X';
 
         setSquares(newStateOfSquares);
     }

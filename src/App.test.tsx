@@ -23,7 +23,8 @@ test('when the first square is clicked it turns into an X', () => {
   // render app
   render(<App />)
   // find the first tile
-  const tile = screen.getAllByTestId('tile')[0]
+  const randomTile = Math.floor(Math.random() * 9);
+  const tile = screen.getAllByTestId('tile')[randomTile]
   // click it
   fireEvent.click(tile)
   // assert the first tile has innerText of "X"
