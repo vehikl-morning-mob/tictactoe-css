@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Square from "./Square";
+import checkWinner from "../CheckWinner";
 
 function Board() {
     const [squares, setSquares] = useState(['', '', '', '', '', '', '', '', ''])
@@ -13,8 +14,10 @@ function Board() {
         setNextLetter(nextLetter === 'X' ? 'O' : 'X');
         setSquares(newStateOfSquares);
 
-        if (newStateOfSquares[0] === 'X' && newStateOfSquares[1] === 'X' && newStateOfSquares[2] === 'X') {
-            setWinnerAnnouncement('X has won!')
+        const winner = checkWinner(newStateOfSquares)
+
+        if (winner != null) {
+            setWinnerAnnouncement(`${winner} has won!`)
         }
     }
 
